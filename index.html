@@ -42,9 +42,9 @@
       <div class="label">SEKUND</div>
     </div>
   </div>
-  <div class="buttons">
-    <button onclick="openModal('https://www.youtube.com/embed/QdBZY2fkU-0?disablekb=1&rel=0&enablejsapi=1&autoplay=1&playsinline=1&modestbranding=1')">Trailer 1</button>
-    <button onclick="openModal('https://www.youtube.com/embed/VQRLujxTm3c?disablekb=1&rel=0&enablejsapi=1&autoplay=1&playsinline=1&modestbranding=1')">Trailer 2</button>
+  <div class="trailer-buttons">
+    <button onclick="showTrailer('https://www.youtube.com/embed/QdBZY2fkU-0?disablekb=1&rel=0&enablejsapi=1&autoplay=1&playsinline=1&modestbranding=1')">Trailer 1</button>
+    <button onclick="showTrailer('https://www.youtube.com/embed/VQRLujxTm3c?disablekb=1&rel=0&enablejsapi=1&autoplay=1&playsinline=1&modestbranding=1')">Trailer 2</button>
   </div>
   <div id="videoModal" class="modal">
     <div class="modal-content">
@@ -52,6 +52,12 @@
       <iframe id="trailerFrame" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
+</div>
+<div id="trailer-modal">
+  <div id="trailer-content">
+    <iframe id="trailer-video" width="960" height="540" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <button id="trailer-close">&times;</button>
 </div>
   <script src="script.js"></script>
 </body>
