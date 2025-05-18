@@ -90,4 +90,22 @@ function closeModal() {
   modal.style.display = "none";
 }
 
+const trailerModal = document.getElementById('trailer-modal');
+const trailerVideo = document.getElementById('trailer-video');
+const trailerClose = document.getElementById('trailer-close');
+
+function showTrailer(url) {
+  trailerVideo.src = url;
+  trailerModal.classList.add('show');
+}
+
+function closeTrailer() {
+  trailerModal.classList.remove('show');
+  setTimeout(() => {
+    trailerVideo.src = ""; // wyczyść źródło po ukryciu
+  }, 400); // dopasowane do CSS transition
+}
+
+trailerClose.addEventListener('click', closeTrailer);
+
 setInterval(changeBackground, 10000);
