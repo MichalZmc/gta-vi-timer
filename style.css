@@ -337,27 +337,82 @@
 }
 
 
-  /* RESPONSYWNOŚĆ na telefon */
   @media (max-width: 600px) {
-    h1 {
-      font-size: 1.6em;
-      margin-bottom: 30px;
-    }
-  
-    .time-box {
-      width: 80px;
-      padding: 15px;
-    }
-  
-    .number {
-      font-size: 1.5em;
-    }
-  
-    .label {
-      font-size: 0.9em;
-    }
-  
-    #countdown {
-      gap: 12px;
-    }
+  h1 {
+    font-size: 1.6em;
+    margin-bottom: 20px;
   }
+
+  .content {
+    padding: 10px;
+  }
+
+  .time-box {
+    width: 70px;
+    padding: 10px;
+  }
+
+  .number {
+    font-size: 1.3em;
+  }
+
+  .label {
+    font-size: 0.8em;
+  }
+
+  #countdown {
+    gap: 10px;
+  }
+
+  .logo-container {
+    margin-bottom: 10px;
+  }
+
+  .gta-logo {
+    width: 180px;
+  }
+
+  /* PRZYCISKI OBOK SIEBIE (NIE POD SOBĄ) */
+  .trailer-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .trailer-buttons button {
+    flex: 1 1 auto;
+    min-width: 120px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+  }
+
+  .corner-icon {
+    top: 10px;
+    left: 10px;
+    width: 28px;
+    height: 28px;
+  }
+
+  /* MNIEJSZY TRAILER MODAL */
+  .modal-content,
+  #trailer-content {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 16 / 10; /* bardziej pionowe */
+    max-height: 50vh;
+  }
+
+  #trailer-modal {
+    padding: 10px;
+    aspect-ratio: auto;
+  }
+
+  .close,
+  #trailer-close {
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+  }
+}
