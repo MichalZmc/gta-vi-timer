@@ -6,15 +6,18 @@
   <title>GTA VI</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="gta_vi_icon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="background" id="background1"></div>
   <div class="background" id="background2"></div>
   <div class="corner-icon" onclick="iconClicked()" onmouseenter="switchIcon(true)" onmouseleave="switchIcon(false)">
+  <a href="https://www.rockstargames.com/VI" target="_blank" class="corner-icon" onmouseenter="switchIcon(true)" onmouseleave="switchIcon(false)">
     <svg id="cornerSvg" width="100%" height="100%" viewBox="0 0 46 35" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path id="iconPath1" d="M46.2661 0.800781H34.7236V34.4008H46.2661V0.800781Z" />
       <path id="iconPath2" d="M33.9162 0.800781L17.3358 34.4008L0.776855 0.800781H12.3139L17.3332 11.5445L22.3766 0.800781H33.9162Z" />
     </svg>
+  </a>
   </div>  
   <div class="content">
   <div class="logo-container">
@@ -44,6 +47,7 @@
   <div class="trailer-buttons">
     <button onclick="showTrailer('https://www.youtube.com/embed/QdBZY2fkU-0?disablekb=1&rel=0&enablejsapi=1&autoplay=1&playsinline=1&modestbranding=1')">Trailer 1</button>
     <button onclick="showTrailer('https://www.youtube.com/embed/VQRLujxTm3c?disablekb=1&rel=0&enablejsapi=1&autoplay=1&playsinline=1&modestbranding=1')">Trailer 2</button>
+    <!-- <button onclick="showTrailer('https://www.youtube.com/embed/VQRLujxTm3c?disablekb=1&rel=0&enablejsapi=1&autoplay=1&playsinline=1&modestbranding=1')">Trailer 3</button> -->
   </div>
   <div id="videoModal" class="modal">
     <div class="modal-content">
@@ -51,6 +55,14 @@
       <iframe id="trailerFrame" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
+  <a id="msln-sign" href="https://t.me/msln777" target="_blank" class="flex items-center gap-1 group">
+  <span class="default-text">stworzone przez</span>
+  <span class="old">@msln</span>
+  <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7 17L17 7" />
+    <path d="M7 7h10v10" />
+  </svg>
+</a>
 </div>
 <div id="trailer-modal">
   <div id="trailer-content">

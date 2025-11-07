@@ -10,6 +10,14 @@
     overflow: hidden;
   }
   
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* im większa liczba, tym ciemniej (0.35 = lekko przyciemnione) */
+  z-index: 1;
+}
+
 .background {
   position: fixed;
   top: 0;
@@ -25,6 +33,7 @@
   z-index: 0;
   opacity: 0;
   transition: opacity 1.5s ease-in-out, transform 12s ease-in-out;
+  overflow: hidden;
 }
 
 #background1 {
@@ -75,71 +84,28 @@
     justify-content: center;
   }
 
-  .time-box {
+.time-box {
   position: relative;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.35); /* grubsza i bardziej widoczna ramka */
   border-radius: 12px;
   padding: 15px;
   width: 100px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
   color: white;
   z-index: 0;
 }
 
-/* Glow + animowany gradient */
-.time-box::before {
-  content: "";
-  position: absolute;
-  inset: -2px; /* większy obszar na glow */
-  z-index: -1;
-  border-radius: 16px;
-  background: linear-gradient(45deg, #385FCE, #9359CF, #FB67B5, #FA7C86, #FE895B, #FD9C43, #385FCE);
-  background-size: 400%;
-  animation: glowBorder 8s linear infinite;
-  filter: blur(8px);
-  opacity: 0.8;
+.time-box:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.6); /* jaśniejsza po najechaniu */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
 }
 
-/* Pseudo-element dla gradientowej ramki */
-.time-box::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  padding: 4px;
-  background: linear-gradient(45deg, #385FCE, #9359CF, #FB67B5, #FA7C86, #FE895B, #FD9C43, #385FCE);
-  background-size: 400%;
-  animation: glowBorder 8s linear infinite;
-  z-index: -2;
-  mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  box-sizing: border-box;
-}
-
-@keyframes glowBorder {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-
-  .time-box:hover {
-  transform: scale(1.05); /* mała animacja po najechaniu */
-  border-color: #fff;     /* jaśniejsza ramka po najechaniu */
-  }
   
   .number {
     font-size: 2em;
@@ -418,6 +384,7 @@
   border: none;
 }
 
+
   #trailer-modal {
     padding: 10px;
     aspect-ratio: auto;
@@ -429,4 +396,58 @@
     right: 20px;
     font-size: 24px;
   }
+}
+
+/* -------------------- */
+/*     MSLN SIGNATURE   */
+/* -------------------- */
+
+#msln-sign {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  font-size: clamp(0.65rem, 2.5vw, 0.8rem);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  user-select: none;
+  max-width: 90vw;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 100; /* zawsze na wierzchu */
+}
+
+#msln-sign .default-text {
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+}
+
+#msln-sign .old {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 0.9rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+#msln-sign .arrow {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+}
+
+#msln-sign:hover .default-text,
+#msln-sign:hover .arrow {
+  color: #ffffff;
+}
+
+#msln-sign:hover .old {
+  color: #5f9cff;
 }
