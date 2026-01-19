@@ -193,8 +193,9 @@
 }
 
 .trailer-buttons button:hover {
-  background: #FD9C43;
-  color: rgba(0,0,0,0.8);
+  background: #fd9d432f;
+  border: 2px solid #fd9d432f;
+  color: rgba(253,156,67,1);
   transform: scale(1.05);
 }
 
@@ -451,3 +452,4 @@
 #msln-sign:hover .old {
   color: #5f9cff;
 }
+
