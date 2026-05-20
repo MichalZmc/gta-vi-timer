@@ -11,65 +11,135 @@
 <body>
   <div class="background" id="background1"></div>
   <div class="background" id="background2"></div>
-  <div class="corner-icon" onclick="iconClicked()" onmouseenter="switchIcon(true)" onmouseleave="switchIcon(false)">
-  <a href="https://www.rockstargames.com/VI" target="_blank" class="corner-icon" onmouseenter="switchIcon(true)" onmouseleave="switchIcon(false)">
-    <svg id="cornerSvg" width="100%" height="100%" viewBox="0 0 46 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path id="iconPath1" d="M46.2661 0.800781H34.7236V34.4008H46.2661V0.800781Z" />
-      <path id="iconPath2" d="M33.9162 0.800781L17.3358 34.4008L0.776855 0.800781H12.3139L17.3332 11.5445L22.3766 0.800781H33.9162Z" />
-    </svg>
-  </a>
+
+  <div class="lang-dropdown">
+    <button class="lang-dropbtn" id="active-lang" onclick="toggleLangDropdown(event)">PL <span class="lang-arrow">▾</span></button>
+    <div class="lang-content" id="lang-links">
+      <a href="#" onclick="changeLanguage('pl')">Polski (PL)</a>
+      <a href="#" onclick="changeLanguage('en')">English (EN)</a>
+    </div>
+  </div>
+
+  <div class="corner-icon">
+    <a href="https://www.rockstargames.com/VI" target="_blank" class="corner-icon">
+      <svg id="cornerSvg" width="100%" height="100%" viewBox="0 0 46 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="iconPath1" d="M46.2661 0.800781H34.7236V34.4008H46.2661V0.800781Z" />
+        <path id="iconPath2" d="M33.9162 0.800781L17.3358 34.4008L0.776855 0.800781H12.3139L17.3332 11.5445L22.3766 0.800781H33.9162Z" />
+      </svg>
+    </a>
   </div>  
-  <div class="content">
-  <div class="logo-container">
-    <img src="images/gta_vi_logo.png" alt="GTA VI logo" class="gta-logo">
+
+  <!-- <div id="preorder-badge" class="preorder-container">
+    <span class="live-dot"></span>
+    <span class="preorder-text" data-pl="PRE-ORDER JUŻ DOSTĘPNY" data-en="PRE-ORDER NOW AVAILABLE">PRE-ORDER JUŻ DOSTĘPNY</span>
+  </div> -->
+
+  <div class="scroll-arrow" id="scrollArrow">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 5v14M19 12l-7 7-7-7"/>
+    </svg>
   </div>
 
-  <h1>DO PREMIERY GTA VI ZOSTAŁO</h1>
+  <div class="scroll-container">
+    
+    <section class="page-section">
+      <div class="content">
 
-  <div id="countdown">
-    <div class="time-box">
-      <div class="number" id="days">0</div>
-      <div class="label">DNI</div>
-    </div>
-    <div class="time-box">
-      <div class="number" id="hours">0</div>
-      <div class="label">GODZIN</div>
-    </div>
-    <div class="time-box">
-      <div class="number" id="minutes">0</div>
-      <div class="label">MINUT</div>
-    </div>
-    <div class="time-box">
-      <div class="number" id="seconds">0</div>
-      <div class="label">SEKUND</div>
-    </div>
+        <div class="logo-container">
+          <img src="images/gta_vi_logo.webp" alt="GTA VI logo" class="gta-logo">
+        </div>
+
+        <h1 id="main-title" data-pl="ODLICZANIE DO PREMIERY GRAND THEFT AUTO VI" data-en="GRAND THEFT AUTO VI RELEASE COUNTDOWN">ODLICZANIE DO PREMIERY GRAND THEFT AUTO VI</h1>
+
+        <div id="release-date-box" class="date-box">
+          <div class="label-small" data-pl="DATA PREMIERY" data-en="RELEASE DATE">DATA PREMIERY</div>
+          <div class="date-text" data-pl="19 Listopada 2026" data-en="November 19, 2026">19 Listopada 2026</div>
+        </div>
+
+        <div id="coming-soon-divider" class="divider-container">
+          <span class="divider-line"></span>
+          <span class="divider-text" data-pl="PREMIERA JUŻ WKRÓTCE" data-en="COMING SOON">PREMIERA JUŻ WKRÓTCE</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <div id="countdown">
+          <div class="time-box">
+            <div class="number" id="days">0</div>
+            <div class="label" data-pl="DNI" data-en="DAYS">DNI</div>
+          </div>
+          <div class="time-box">
+            <div class="number" id="hours">0</div>
+            <div class="label" data-pl="GODZIN" data-en="HOURS">HOURS</div>
+          </div>
+          <div class="time-box">
+            <div class="number" id="minutes">0</div>
+            <div class="label" data-pl="MINUT" data-en="MINUTES">MINUTES</div>
+          </div>
+          <div class="time-box">
+            <div class="number" id="seconds">0</div>
+            <div class="label" data-pl="SEKUND" data-en="SECONDS">SECONDS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="content">
+        <h2 class="section-title" data-pl="OFICJALNE ZWIASTUNY" data-en="OFFICIAL TRAILERS">OFICJALNE ZWIASTUNY</h2>
+        
+        <div class="trailer-grid">
+          
+          <div class="trailer-card" data-video-id="QdBZY2fkU-0">
+            <div class="thumbnail-wrapper">
+              <div class="play-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5V19L19 12L8 5Z"></path>
+                </svg>
+              </div>
+            </div>
+            <span class="trailer-title">Official Trailer 1</span>
+          </div>
+
+          <div class="trailer-card" data-video-id="VQRLujxTm3c">
+            <div class="thumbnail-wrapper">
+              <div class="play-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5V19L19 12L8 5Z"></path>
+                </svg>
+              </div>
+            </div>
+            <span class="trailer-title">Official Trailer 2</span>
+          </div>
+
+          </div>
+      </div>
+    </section>
+
   </div>
-  <div class="trailer-buttons">
-    <button onclick="showTrailer('https://www.youtube.com/embed/QdBZY2fkU-0?disablekb=1&rel=0&enablejsapi=1&autoplay=1&playsinline=1&modestbranding=1')">Trailer 1</button>
-    <button onclick="showTrailer('https://www.youtube.com/embed/VQRLujxTm3c?disablekb=1&rel=0&enablejsapi=1&autoplay=1&playsinline=1&modestbranding=1')">Trailer 2</button>
-    <!-- <button onclick="showTrailer('https://www.youtube.com/embed/VQRLujxTm3c?disablekb=1&rel=0&enablejsapi=1&autoplay=1&playsinline=1&modestbranding=1')">Trailer 3</button> -->
-  </div>
+
   <div id="videoModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <iframe id="trailerFrame" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
+
   <a id="msln-sign" href="https://t.me/msln777" target="_blank" class="flex items-center gap-1 group">
-  <span class="default-text">stworzone przez</span>
-  <span class="old">@msln</span>
-  <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M7 17L17 7" />
-    <path d="M7 7h10v10" />
-  </svg>
-</a>
-</div>
-<div id="trailer-modal">
-  <div id="trailer-content">
-    <iframe id="trailer-video" width="960" height="540" frameborder="0" allowfullscreen></iframe>
+    <span class="default-text" data-pl="stworzone przez" data-en="created by">stworzone przez</span>
+    <span class="old">@msln</span>
+    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 17L17 7" />
+      <path d="M7 7h10v10" />
+    </svg>
+  </a>
+
+  <div id="trailer-modal">
+    <div id="trailer-content">
+      <iframe id="trailer-video" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <button id="trailer-close">&times;</button>
   </div>
-  <button id="trailer-close">&times;</button>
-</div>
+
   <script src="script.js"></script>
 </body>
 </html>
