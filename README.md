@@ -10,11 +10,11 @@
 ---
 
 ### 🌐 Wybierz język / Choose language:
-* [Po polsku 🇵🇱](#gta-vi---licznik-do-premiery-pl)
-* [In English 🇬🇧](#gta-vi---release-countdown-en)
+* [Po polsku 🇵🇱](#pl)
+* [In English 🇬🇧](#en)
 
 ---
-
+<a id="pl"></a>
 ## 🇵🇱 GTA VI - Licznik Do Premiery (PL)
 
 Siemanko! Jest to prosty, klimatyczny i w 100% **fanowski projekt** strony internetowej, która odlicza czas do wyczekiwanej premiery **Grand Theft Auto VI** (zaplanowanej na 19 listopada 2026 roku). 
@@ -45,7 +45,7 @@ Strona została stworzona z zajawki do serii – ma cieszyć oko dynamicznym tł
 Nieoficjalny projekt fanowski · Nie jest powiązany z Rockstar Games ani Take-Two Interactive
 
 ---
-
+<a id="en"></a>
 ## 🇬🇧 GTA VI - Release Countdown (EN)
 
 Hey there! This is a simple, atmospheric, and 100% **fan-made project** for a website counting down the time until the highly anticipated release of **Grand Theft Auto VI** (scheduled for November 19, 2026). 
