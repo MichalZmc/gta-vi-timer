@@ -73,7 +73,7 @@ function updateCountdown() {
     if (translatedText) el.innerText = translatedText;
   });
 
-  document.querySelectorAll('#countdown .label, #msln-sign .default-text, .author-disclaimer').forEach(el => {
+  document.querySelectorAll('#countdown .label, #msln-sign .default-text, .author-disclaimer, .section-title').forEach(el => {
     const translatedText = el.getAttribute(`data-${currentLang}`);
     if (translatedText) el.innerText = translatedText;
   });
