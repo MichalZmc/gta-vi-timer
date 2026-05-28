@@ -29,11 +29,6 @@
     </a>
   </div>  
 
-  <!-- <div id="preorder-badge" class="preorder-container">
-    <span class="live-dot"></span>
-    <span class="preorder-text" data-pl="PRE-ORDER JUŻ DOSTĘPNY" data-en="PRE-ORDER NOW AVAILABLE">PRE-ORDER JUŻ DOSTĘPNY</span>
-  </div> -->
-
   <div class="scroll-arrow" id="scrollArrow">
     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 5v14M19 12l-7 7-7-7"/>
@@ -110,7 +105,7 @@
             </div>
             <span class="trailer-title">Official Trailer 2</span>
           </div>
-
+          
           </div>
       </div>
     </section>
@@ -124,14 +119,45 @@
     </div>
   </div>
 
-  <a id="msln-sign" href="https://t.me/msln777" target="_blank" class="flex items-center gap-1 group">
+  <button id="msln-sign" onclick="openAuthorModal()" class="flex items-center gap-1 group">
     <span class="default-text" data-pl="stworzone przez" data-en="created by">stworzone przez</span>
     <span class="old">@msln</span>
     <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M7 17L17 7" />
       <path d="M7 7h10v10" />
     </svg>
-  </a>
+  </button>
+
+  <div id="authorModal" class="author-modal" onclick="closeAuthorModal(event)">
+    <div class="author-modal-content">
+      <span class="author-close" onclick="closeAuthorModal(event)">&times;</span>
+      
+      <img id="author-avatar" src="https://github.com/MichalZmc.png" alt="Avatar" class="author-avatar">
+      
+      <div class="author-username">@msln</div>
+      
+      <div class="author-buttons">
+        <a href="https://t.me/msln777" target="_blank" class="author-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21.92 3.58a.74.74 0 0 0-.66-.13L2.4 10.3a.75.75 0 0 0-.14 1.39l4.9 2.5 2.1 6.33a.75.75 0 0 0 1.32.22l2.9-3.53 4.8 3.53a.75.75 0 0 0 1.2-.47l3-16a.75.75 0 0 0-.56-.69zM8.1 13.52l9.6-6.15-7.35 7.9-.22.68-.32-1-.24-.73-.24-.73-.23-.7-.25-.75-.75-2.27z"/>
+          </svg>
+          TELEGRAM
+        </a>
+        <a href="https://github.com/MichalZmc" target="_blank" class="author-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+          </svg>
+          GITHUB
+        </a>
+      </div>
+
+      <div class="author-disclaimer" 
+           data-pl="Nieoficjalny projekt fanowski · Nie jest powiązany z Rockstar Games ani Take-Two Interactive" 
+           data-en="Unofficial fan project · Not affiliated with Rockstar Games or Take-Two Interactive">
+        Nieoficjalny projekt fanowski · Nie jest powiązany z Rockstar Games ani Take-Two Interactive
+      </div>
+    </div>
+  </div>
 
   <div id="trailer-modal">
     <div id="trailer-content">

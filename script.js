@@ -73,7 +73,7 @@ function updateCountdown() {
     if (translatedText) el.innerText = translatedText;
   });
 
-  document.querySelectorAll('.page-section .section-title').forEach(el => {
+  document.querySelectorAll('#countdown .label, #msln-sign .default-text, .author-disclaimer').forEach(el => {
     const translatedText = el.getAttribute(`data-${currentLang}`);
     if (translatedText) el.innerText = translatedText;
   });
@@ -266,13 +266,25 @@ const scrollArrow = document.getElementById('scrollArrow');
 if (scrollContainer && scrollArrow) {
   scrollContainer.addEventListener('scroll', () => {
     const scrollTop = scrollContainer.scrollTop;
-    const windowHeight = window.innerHeight;
-    let opacity = 1 - (scrollTop / (windowHeight * 0.35));
+    const scrollHeight = scrollContainer.scrollHeight;
+    const clientHeight = scrollContainer.clientHeight;
+    const maxScroll = scrollHeight - clientHeight;
+    const fadeZone = clientHeight; 
+    let opacity = 1;
     
+    if (maxScroll - scrollTop <= fadeZone) {
+      opacity = (maxScroll - scrollTop) / fadeZone;
+    }
+
     if (opacity < 0) opacity = 0;
     if (opacity > 1) opacity = 1;
 
     scrollArrow.style.opacity = opacity;
+    if (opacity === 0) {
+      scrollArrow.style.visibility = 'hidden';
+    } else {
+      scrollArrow.style.visibility = 'visible';
+    }
   });
 }
 
@@ -292,4 +304,37 @@ document.addEventListener("DOMContentLoaded", () => {
       showTrailer(embedUrl);
     });
   });
+});
+
+function openAuthorModal() {
+  const modal = document.getElementById('authorModal');
+  if (modal) {
+    modal.classList.remove('author-closing');
+    modal.style.display = 'flex';
+  }
+}
+
+function closeAuthorModal(event) {
+  const modal = document.getElementById('authorModal');
+  if (!modal) return;
+
+  const isCloseClick = event && (event.target.id === 'authorModal' || event.target.classList.contains('author-close') || event.target.tagName === 'SPAN');
+  
+  if (!event || isCloseClick) {
+    modal.classList.add('author-closing');
+    
+    setTimeout(() => {
+      modal.style.display = 'none';
+      modal.classList.remove('author-closing');
+    }, 300);
+  }
+}
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    const authorModal = document.getElementById('authorModal');
+    if (authorModal && authorModal.style.display === "flex" && !authorModal.classList.contains('author-closing')) {
+      closeAuthorModal();
+    }
+  }
 });
