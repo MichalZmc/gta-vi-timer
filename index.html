@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GTA VI</title>
+  <title>GTA VI - Countdown</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="gta_vi_icon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
@@ -13,10 +13,10 @@
   <div class="background" id="background2"></div>
 
   <div class="lang-dropdown">
-    <button class="lang-dropbtn" id="active-lang" onclick="toggleLangDropdown(event)">PL <span class="lang-arrow">▾</span></button>
+    <button class="lang-dropbtn" id="active-lang" onclick="toggleLangDropdown(event)">EN <span class="lang-arrow">▾</span></button>
     <div class="lang-content" id="lang-links">
-      <a href="#" onclick="changeLanguage('pl')">Polski (PL)</a>
       <a href="#" onclick="changeLanguage('en')">English (EN)</a>
+      <a href="#" onclick="changeLanguage('pl')">Polski (PL)</a>
     </div>
   </div>
 
@@ -28,6 +28,11 @@
       </svg>
     </a>
   </div>  
+
+  <div id="preorder-badge" class="preorder-container">
+    <span class="live-dot"></span>
+    <span class="preorder-text" data-pl="PRE-ORDER JUŻ DOSTĘPNY" data-en="PRE-ORDER NOW AVAILABLE">PRE-ORDER NOW AVAILABLE</span>
+  </div>
 
   <div class="scroll-arrow" id="scrollArrow">
     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -44,23 +49,23 @@
           <img src="images/gta_vi_logo.webp" alt="GTA VI logo" class="gta-logo">
         </div>
 
-        <h1 id="main-title" data-pl="ODLICZANIE DO PREMIERY GRAND THEFT AUTO VI" data-en="GRAND THEFT AUTO VI RELEASE COUNTDOWN">ODLICZANIE DO PREMIERY GRAND THEFT AUTO VI</h1>
+        <h1 id="main-title" data-pl="ODLICZANIE DO PREMIERY GRAND THEFT AUTO VI" data-en="GRAND THEFT AUTO VI RELEASE COUNTDOWN">GRAND THEFT AUTO VI RELEASE COUNTDOWN</h1>
 
         <div id="release-date-box" class="date-box">
-          <div class="label-small" data-pl="DATA PREMIERY" data-en="RELEASE DATE">DATA PREMIERY</div>
-          <div class="date-text" data-pl="19 Listopada 2026" data-en="November 19, 2026">19 Listopada 2026</div>
+          <div class="label-small" data-pl="DATA PREMIERY" data-en="RELEASE DATE">RELEASE DATE</div>
+          <div class="date-text" data-pl="19 Listopada 2026" data-en="November 19, 2026">November 19, 2026</div>
         </div>
 
         <div id="coming-soon-divider" class="divider-container">
           <span class="divider-line"></span>
-          <span class="divider-text" data-pl="PREMIERA JUŻ WKRÓTCE" data-en="COMING SOON">PREMIERA JUŻ WKRÓTCE</span>
+          <span class="divider-text" data-pl="PREMIERA JUŻ WKRÓTCE" data-en="COMING SOON">COMING SOON</span>
           <span class="divider-line"></span>
         </div>
 
         <div id="countdown">
           <div class="time-box">
             <div class="number" id="days">0</div>
-            <div class="label" data-pl="DNI" data-en="DAYS">DNI</div>
+            <div class="label" data-pl="DNI" data-en="DAYS">DAYS</div>
           </div>
           <div class="time-box">
             <div class="number" id="hours">0</div>
@@ -78,9 +83,51 @@
       </div>
     </section>
 
+    <section class="page-section" id="preorder-section">
+      <div class="content">
+        <h2 class="section-title" data-pl="PRE-ORDER" data-en="PRE-ORDER">PRE-ORDER</h2>
+    
+        <div class="preorder-grid">
+          <div class="preorder-card">
+            <img src="images/Cover_art/gta_vi_standard_edition.webp" alt="Standard Edition">
+            <div class="preorder-content">
+              <h3 data-pl="Standard Edition" data-en="Standard Edition">Standard Edition</h3>
+              <ul>
+                <li data-pl="• Grand Theft Auto VI" data-en="• Grand Theft Auto VI">• Grand Theft Auto VI</li>
+                <li data-pl="• Pakiet Vintage Vice City" data-en="• Vintage Vice City Pack">• Vintage Vice City Pack</li>
+                <li data-pl="• Jeden miesiąc GTA+" data-en="• One month of GTA+">• One month of GTA+</li>
+              </ul>
+              <span class="price" data-pl="349,00 zł" data-en="$79,99">$79,99</span>
+              <a href="https://www.rockstargames.com/VI/editions" target="_blank" class="preorder-btn" data-pl="Zamów przed premierą" data-en="Pre-order now">Pre-order now</a>
+            </div>
+          </div>
+
+          <div class="preorder-card">
+            <img src="images/Cover_art/gta_vi_ultimate_edition.webp" alt="Ultimate Edition">
+            <div class="preorder-content">
+              <h3 data-pl="Ultimate Edition" data-en="Ultimate Edition">Ultimate Edition</h3>
+              <ul>
+                <li data-pl="• Grand Theft Auto VI" data-en="• Grand Theft Auto VI">• Grand Theft Auto VI</li>
+                <li data-pl="• Pakiet Vintage Vice City" data-en="• Vintage Vice City Pack">• Vintage Vice City Pack</li>
+                <li data-pl="• Ulepszenie Ultimate Edition" data-en="• Ultimate Edition Upgrade">• Ultimate Edition Upgrade</li>
+                <li data-pl="• Jeden miesiąc GTA+" data-en="• One month of GTA+">• One month of GTA+</li>
+              </ul>
+              <span class="price" data-pl="429,00 zł" data-en="$99,99">$99,99</span>
+              <a href="https://www.rockstargames.com/VI/editions" target="_blank" class="preorder-btn" data-pl="Zamów przed premierą" data-en="Pre-order now">Pre-order now</a>
+            </div>
+          </div>
+
+        </div>
+        <div class="carousel-indicators" id="preorder-indicators">
+          <div class="indicator active"></div>
+          <div class="indicator"></div>
+        </div>
+      </div>
+    </section>
+
     <section class="page-section">
       <div class="content">
-        <h2 class="section-title" data-pl="OFICJALNE ZWIASTUNY" data-en="OFFICIAL TRAILERS">OFICJALNE ZWIASTUNY</h2>
+        <h2 class="section-title" data-pl="OFICJALNE MATERIAŁY GTA VI" data-en="OFFICIAL GTA VI MATERIALS">OFFICIAL GTA VI MATERIALS</h2>
         
         <div class="trailer-grid">
           
@@ -105,8 +152,19 @@
             </div>
             <span class="trailer-title">Official Trailer 2</span>
           </div>
-          
+
+          <div class="trailer-card" data-video-id="EiQEBYDox_k">
+            <div class="thumbnail-wrapper">
+              <div class="play-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5V19L19 12L8 5Z"></path>
+                </svg>
+              </div>
+            </div>
+            <span class="trailer-title">Official Cover Art Reveal</span>
           </div>
+          
+        </div>
       </div>
     </section>
 
@@ -120,7 +178,7 @@
   </div>
 
   <button id="msln-sign" onclick="openAuthorModal()" class="flex items-center gap-1 group">
-    <span class="default-text" data-pl="stworzone przez" data-en="created by">stworzone przez</span>
+    <span class="default-text" data-pl="stworzone przez" data-en="created by">created by</span>
     <span class="old">@msln</span>
     <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M7 17L17 7" />
@@ -154,7 +212,7 @@
       <div class="author-disclaimer" 
            data-pl="Nieoficjalny projekt fanowski · Nie jest powiązany z Rockstar Games ani Take-Two Interactive" 
            data-en="Unofficial fan project · Not affiliated with Rockstar Games or Take-Two Interactive">
-        Nieoficjalny projekt fanowski · Nie jest powiązany z Rockstar Games ani Take-Two Interactive
+        Unofficial fan project · Not affiliated with Rockstar Games or Take-Two Interactive
       </div>
     </div>
   </div>

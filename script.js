@@ -9,74 +9,75 @@ function updateCountdown() {
   const releaseDateBox = document.getElementById("release-date-box");
   const comingSoonDivider = document.getElementById("coming-soon-divider");
   const preorderBadge = document.getElementById("preorder-badge");
-
-  if (diff <= 0) {
-    if (releaseDateBox) releaseDateBox.style.display = "none";
-    if (comingSoonDivider) comingSoonDivider.style.display = "none";
-    if (preorderBadge) preorderBadge.style.display = "none";
-    
-    if (currentLang === 'pl') {
-      if (mainHeader) mainHeader.innerText = "GRAND THEFT AUTO VI JUŻ DOSTĘPNE!";
-    } else {
-      if (mainHeader) mainHeader.innerText = "GRAND THEFT AUTO VI IS NOW AVAILABLE!";
-    }
-
-    if (!document.getElementById("buy-container")) {
-      const text = currentLang === 'pl' 
-        ? "Wejdź do <span class='vice-title'>Vice City</span> już dziś i rozpocznij nową przygodę z <span class='gta-title'>Grand Theft Auto</span>." 
-        : "Enter <span class='vice-title'>Vice City</span> today and begin your new adventure with <span class='gta-title'>Grand Theft Auto</span>.";
-      const btnText = currentLang === 'pl' ? "Kup teraz" : "Buy now";
-
-      document.getElementById("countdown").innerHTML = `
-        <div id="buy-container" class="buy-now-container">
-          <p id="buy-text">${text}</p>
-          <a href="https://www.rockstargames.com/VI" target="_blank" class="buy-now-link">
-            <button class="buy-now-btn" id="buy-btn-text">${btnText}</button>
-          </a>
-        </div>
-      `;
-    }
-    return;
-  }
+  const preorderSection = document.getElementById("preorder-section");
+  const countdownDiv = document.getElementById("countdown");
 
   if (mainHeader) {
     mainHeader.innerText = mainHeader.getAttribute(`data-${currentLang}`);
   }
 
-  document.querySelectorAll('#release-date-box .label-small, #release-date-box .date-text').forEach(el => {
+  document.querySelectorAll('[data-pl]').forEach(el => {
     const translatedText = el.getAttribute(`data-${currentLang}`);
-    if (translatedText) el.innerText = translatedText;
+    if (translatedText) {
+        if (!el.classList.contains('lang-dropbtn')) {
+            el.innerText = translatedText;
+        }
+    }
   });
 
-  document.querySelectorAll('#coming-soon-divider .divider-text').forEach(el => {
-    const translatedText = el.getAttribute(`data-${currentLang}`);
-    if (translatedText) el.innerText = translatedText;
-  });
+  if (diff <= 0) {
+    if (releaseDateBox) releaseDateBox.style.display = "none";
+    if (comingSoonDivider) comingSoonDivider.style.display = "none";
+    if (preorderBadge) preorderBadge.style.display = "none";
+    if (preorderSection) preorderSection.style.display = "none";
 
-  document.querySelectorAll('#preorder-badge .preorder-text').forEach(el => {
-    const translatedText = el.getAttribute(`data-${currentLang}`);
-    if (translatedText) el.innerText = translatedText;
-  });
+    document.body.classList.add("released");
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
+    const translations = {
+      en: {
+        title: "GRAND THEFT AUTO VI NOW AVAILABLE!",
+        description: "Grand Theft Auto VI is now available. Enter a world full of action, opportunities, and unforgettable adventures.",
+        button: "BUY NOW"
+      },
+      pl: {
+        title: "GRAND THEFT AUTO VI JUŻ DOSTĘPNE!",
+        description: "Grand Theft Auto VI jest już dostępne. Wejdź do świata pełnego akcji, możliwości i niezapomnianych przygód.",
+        button: "KUP TERAZ"
+      }
+    };
 
-  document.getElementById("days").innerText = days;
-  document.getElementById("hours").innerText = hours;
-  document.getElementById("minutes").innerText = minutes;
-  document.getElementById("seconds").innerText = seconds;
+    const t = translations[currentLang] || translations.pl;
 
-  document.querySelectorAll('#countdown .label, #msln-sign .default-text').forEach(el => {
-    const translatedText = el.getAttribute(`data-${currentLang}`);
-    if (translatedText) el.innerText = translatedText;
-  });
+    if (mainHeader) {
+      mainHeader.innerText = t.title;
+    }
 
-  document.querySelectorAll('#countdown .label, #msln-sign .default-text, .author-disclaimer, .section-title').forEach(el => {
-    const translatedText = el.getAttribute(`data-${currentLang}`);
-    if (translatedText) el.innerText = translatedText;
-  });
+    if (countdownDiv) {
+      countdownDiv.innerHTML = `
+        <div id="premium-buy-section" class="official-premium-card">
+          <div class="glow-layer"></div>
+          <img src="images/Cover_art/Official_Cover_Art_square.webp" alt="GTA VI Cover" class="cover-art">
+          <div class="preorder-info">
+            <h3 style="margin-bottom: 10px;">Grand Theft Auto VI</h3>
+            <p style="margin-bottom: 20px;">${t.description}</p>
+            <a href="https://www.rockstargames.com/VI" class="premium-buy-btn">${t.button}</a>
+          </div>
+        </div>
+      `;
+    }
+  } else {
+    document.body.classList.remove("released");
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+  }
 }
 
 function toggleLangDropdown(event) {
@@ -89,15 +90,6 @@ function changeLanguage(lang) {
   currentLang = lang;
   localStorage.setItem('gta6_lang', lang);
   document.getElementById('active-lang').innerHTML = `${lang.toUpperCase()} <span class="lang-arrow">▾</span>`;
-  
-  const buyText = document.getElementById('buy-text');
-  const buyBtnText = document.getElementById('buy-btn-text');
-  if (buyText && buyBtnText) {
-    buyText.innerHTML = lang === 'pl' 
-      ? "Wejdź do <span class='vice-title'>Vice City</span> już dziś i rozpocznij nową przygodę z <span class='gta-title'>Grand Theft Auto</span>." 
-      : "Enter <span class='vice-title'>Vice City</span> today and begin your new adventure with <span class='gta-title'>Grand Theft Auto</span>.";
-    buyBtnText.innerText = lang === 'pl' ? "Kup teraz" : "Buy now";
-  }
 
   updateCountdown();
   document.querySelector(".lang-dropdown").classList.remove("open");
@@ -121,7 +113,8 @@ setInterval(updateCountdown, 1000);
 const images = [
   'images/Artwork/Boobie_Ike_landscape.webp', 'images/Artwork/Brian_Heder_landscape.webp', 'images/Artwork/Cal_Hampton_landscape.webp',
   'images/Artwork/DreQuan_Priest_landscape.webp', 'images/Artwork/Jason_and_Lucia_01_landscape.webp', 'images/Artwork/Jason_and_Lucia_02_landscape.webp',
-  'images/Artwork/Jason_and_Lucia_Motel_landscape.webp', 'images/Artwork/Raul_Bautista_landscape.webp', 'images/Artwork/Real_Dimez_landscape.webp',
+  'images/Artwork/Jason_and_Lucia_03_landscape.webp', 'images/Artwork/Jason_and_Lucia_Motel_landscape.webp', 'images/Artwork/Raul_Bautista_landscape.webp',
+  'images/Artwork/Real_Dimez_landscape.webp',
 
   'images/People/Boobie Ike/Boobie_Ike_01.webp', 'images/People/Boobie Ike/Boobie_Ike_02.webp', 'images/People/Boobie Ike/Boobie_Ike_03.webp',
   'images/People/Boobie Ike/Boobie_Ike_04.webp',
@@ -151,7 +144,30 @@ const images = [
   'images/Places/Port Gellhorn/Port_Gellhorn_01.webp', 'images/Places/Port Gellhorn/Port_Gellhorn_02.webp', 'images/Places/Port Gellhorn/Port_Gellhorn_03.webp',
   'images/Places/Port Gellhorn/Port_Gellhorn_04.webp', 'images/Places/Port Gellhorn/Port_Gellhorn_05.webp',
   'images/Places/Vice City/Vice_City_01.webp', 'images/Places/Vice City/Vice_City_02.webp', 'images/Places/Vice City/Vice_City_03.webp',
-  'images/Places/Vice City/Vice_City_04.webp', 'images/Places/Vice City/Vice_City_05.webp', 'images/Places/Vice City/Vice_City_06.webp'
+  'images/Places/Vice City/Vice_City_04.webp', 'images/Places/Vice City/Vice_City_05.webp', 'images/Places/Vice City/Vice_City_06.webp',
+
+  'images/Ultimate_Edition/ULTIMATE_EDITION_01.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_02.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_ELECTRIC_FANG_01.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_ELECTRIC_FANG_02.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_ELECTRIC_FANG_03.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_ELECTRIC_FANG_04.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_GOODTIME_GEAR_01.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_GROTTI_CHEETAH_01.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_GROTTI_CHEETAH_02.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_GROTTI_CHEETAH_03.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_GROTTI_CHEETAH_04.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_HAWK_AND_LITTLE_MORGAN_REVOLVERS_01.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_HAWK_AND_LITTLE_MORGAN_REVOLVERS_02.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_ONE_EYED_WILLIE_01.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_ONE_EYED_WILLIE_02.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_ONE_EYED_WILLIE_03.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_PTT_STORE_01.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_RIDEOUT_CUSTOMS_01.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_RIDEOUT_CUSTOMS_02.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_RIDEOUT_CUSTOMS_03.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_SAFEHOUSE_VEHICLES_01.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_SAFEHOUSE_VEHICLES_02.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_SAFEHOUSE_VEHICLES_03.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_SARAS_SALON_01.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_SARAS_SALON_02.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_SARAS_SALON_03.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_SQUALO_01.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_SQUALO_02.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_SQUALO_03.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_SQUALO_04.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_STOCK_305_01.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_STOCK_305_02.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_STOCK_305_03.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_STOCK_305_04.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_VAPID_BUGGY_01.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_VAPID_BUGGY_02.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_VAPID_BUGGY_03.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_VAPID_BUGGY_04.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_VAPID_GANADO_RETRO_BUILD_01.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_VICE_CITY_STYLE_01.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_VICE_CITY_STYLE_02.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_VICE_CITY_STYLE_03.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_VICE_CITY_STYLE_04.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_VICE_CITY_STYLE_05.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_WEAPON_VARIANTS_01.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_WYMAN_CAR_COLLECTION_01.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_WYMAN_CAR_COLLECTION_02.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_WYMAN_CAR_COLLECTION_03.webp', 
+  'images/Ultimate_Edition/ULTIMATE_EDITION_WYMAN_CAR_COLLECTION_04.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_WYMAN_CAR_COLLECTION_05.webp', 'images/Ultimate_Edition/ULTIMATE_EDITION_WYMAN_CAR_COLLECTION_06.webp', 
+
+  'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_01.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_02.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_EXCLUSIVE_LOOKS_01.webp', 
+  'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_EXCLUSIVE_LOOKS_02.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_EXCLUSIVE_LOOKS_03.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_EXCLUSIVE_LOOKS_04.webp', 
+  'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_EXCLUSIVE_LOOKS_05.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_VAPID_STANIER_01.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_VAPID_STANIER_02.webp', 
+  'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_VAPID_STANIER_03.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_VAPID_STANIER_04.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_WEAPON_PATTERN_01.webp'
 ];
 
 let bg1 = document.getElementById('background1');
@@ -338,3 +354,22 @@ document.addEventListener('keydown', (event) => {
     }
   }
 });
+
+const grid = document.querySelector('.preorder-grid');
+const indicators = document.querySelectorAll('.indicator');
+
+if (grid) {
+  grid.addEventListener('scroll', () => {
+    const scrollLeft = grid.scrollLeft;
+    const cardWidth = grid.offsetWidth * 0.9;
+    const index = Math.round(scrollLeft / cardWidth);
+
+    indicators.forEach((ind, i) => {
+      if (i === index) {
+        ind.classList.add('active');
+      } else {
+        ind.classList.remove('active');
+      }
+    });
+  });
+}
