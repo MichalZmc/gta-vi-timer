@@ -93,6 +93,9 @@ function changeLanguage(lang) {
 
   updateCountdown();
   document.querySelector(".lang-dropdown").classList.remove("open");
+  
+  const isBlurred = !document.body.classList.contains('no-blur');
+  updateBlurUI(isBlurred);
 }
 
 window.addEventListener("click", () => {
@@ -373,3 +376,37 @@ if (grid) {
     });
   });
 }
+
+function updateBlurUI(isBlurred) {
+    const btn = document.getElementById('blur-toggle-btn');
+    if (!btn) return;
+    
+    const status = isBlurred ? 'on' : 'off';
+    
+    btn.innerText = btn.getAttribute(`data-${currentLang}-${status}`);
+    
+    const label = document.querySelector('.blur-label');
+    if (label) {
+        label.innerText = label.getAttribute(`data-${currentLang}`);
+    }
+}
+
+function toggleBackgroundBlur() {
+    const body = document.body;
+    body.classList.toggle('no-blur');
+    const isBlurred = !body.classList.contains('no-blur');
+    
+    localStorage.setItem('gta6_blur', isBlurred ? 'on' : 'off');
+    updateBlurUI(isBlurred);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const savedBlur = localStorage.getItem('gta6_blur');
+    const isBlurred = savedBlur !== 'off';
+
+    if (!isBlurred) {
+        document.body.classList.add('no-blur');
+    }
+
+    updateBlurUI(isBlurred);
+});
