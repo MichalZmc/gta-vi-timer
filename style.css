@@ -4,6 +4,16 @@
   padding: 0;
 }
 
+::selection {
+  background: #FD9C43;
+  color: #000000;
+}
+
+::-moz-selection {
+  background: #FD9C43;
+  color: #000000;
+}
+
 html, body {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

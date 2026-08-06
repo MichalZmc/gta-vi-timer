@@ -116,8 +116,8 @@ setInterval(updateCountdown, 1000);
 const images = [
   'images/Artwork/Boobie_Ike_landscape.webp', 'images/Artwork/Brian_Heder_landscape.webp', 'images/Artwork/Cal_Hampton_landscape.webp',
   'images/Artwork/DreQuan_Priest_landscape.webp', 'images/Artwork/Jason_and_Lucia_01_landscape.webp', 'images/Artwork/Jason_and_Lucia_02_landscape.webp',
-  'images/Artwork/Jason_and_Lucia_03_landscape.webp', 'images/Artwork/Jason_and_Lucia_Motel_landscape.webp', 'images/Artwork/Raul_Bautista_landscape.webp',
-  'images/Artwork/Real_Dimez_landscape.webp',
+  'images/Artwork/Jason_and_Lucia_03_landscape.webp', 'images/Artwork/Jason_and_Lucia_Motel_landscape.webp', 'images/Artwork/Jason_and_Lucia_Robbery_landscape.webp',
+  'images/Artwork/Raul_Bautista_landscape.webp', 'images/Artwork/Real_Dimez_landscape.webp',
 
   'images/People/Boobie Ike/Boobie_Ike_01.webp', 'images/People/Boobie Ike/Boobie_Ike_02.webp', 'images/People/Boobie Ike/Boobie_Ike_03.webp',
   'images/People/Boobie Ike/Boobie_Ike_04.webp',
