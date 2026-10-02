@@ -170,7 +170,18 @@ const images = [
   'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_01.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_02.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_EXCLUSIVE_LOOKS_01.webp', 
   'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_EXCLUSIVE_LOOKS_02.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_EXCLUSIVE_LOOKS_03.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_EXCLUSIVE_LOOKS_04.webp', 
   'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_EXCLUSIVE_LOOKS_05.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_VAPID_STANIER_01.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_VAPID_STANIER_02.webp', 
-  'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_VAPID_STANIER_03.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_VAPID_STANIER_04.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_WEAPON_PATTERN_01.webp'
+  'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_VAPID_STANIER_03.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_VAPID_STANIER_04.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_WEAPON_PATTERN_01.webp',
+
+  'images/Other_screenshots/Ambrosia_06.webp', 'images/Other_screenshots/Grassrivers_05.webp', 'images/Other_screenshots/Grassrivers_06.webp',
+  'images/Other_screenshots/Jason_and_Lucia_01.webp', 'images/Other_screenshots/Jason_and_Lucia_02.webp', 'images/Other_screenshots/Jason_and_Lucia_03.webp',
+  'images/Other_screenshots/Jason_and_Lucia_04.webp', 'images/Other_screenshots/Jason_and_Lucia_05.webp', 'images/Other_screenshots/Jason_and_Lucia_06.webp',
+  'images/Other_screenshots/Jason_and_Lucia_07.webp', 'images/Other_screenshots/Jason_and_Lucia_08.webp', 'images/Other_screenshots/Jason_and_Lucia_09.webp',
+  'images/Other_screenshots/Jason_and_Lucia_10.webp', 'images/Other_screenshots/Jason_and_Lucia_11.webp', 'images/Other_screenshots/Jason_and_Lucia_12.webp',
+  'images/Other_screenshots/Jason_and_Lucia_13.webp', 'images/Other_screenshots/Jason_Duval_07.webp', 'images/Other_screenshots/Jason_Duval_08.webp',
+  'images/Other_screenshots/Jason_Duval_09.webp', 'images/Other_screenshots/Jason_Duval_10.webp', 'images/Other_screenshots/Leonida_Keys_06.webp',
+  'images/Other_screenshots/Lucia_Caminos_07.webp', 'images/Other_screenshots/Lucia_Caminos_08.webp', 'images/Other_screenshots/Lucia_Caminos_09.webp',
+  'images/Other_screenshots/Lucia_Caminos_10.webp', 'images/Other_screenshots/Port_Gellhorn_06.webp', 'images/Other_screenshots/Vice_City_10.webp',
+  'images/Other_screenshots/Vice_City_11.webp', 'images/Other_screenshots/Vice_City_12.webp'
 ];
 
 let bg1 = document.getElementById('background1');
