@@ -173,6 +173,7 @@ const images = [
   'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_VAPID_STANIER_03.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_PACK_VAPID_STANIER_04.webp', 'images/Vintege_Vice_City/VINTAGE_VICE_CITY_WEAPON_PATTERN_01.webp',
 
   'images/Other_screenshots/Ambrosia_06.webp', 'images/Other_screenshots/Grassrivers_05.webp', 'images/Other_screenshots/Grassrivers_06.webp',
+  'images/Other_screenshots/HUHRmlSWwAAdEd5.webp', 'images/Other_screenshots/HUHRnO0W0AArDux.webp', 'images/Other_screenshots/HUHRnzhWYAAvYBe.webp',
   'images/Other_screenshots/Jason_and_Lucia_01.webp', 'images/Other_screenshots/Jason_and_Lucia_02.webp', 'images/Other_screenshots/Jason_and_Lucia_03.webp',
   'images/Other_screenshots/Jason_and_Lucia_04.webp', 'images/Other_screenshots/Jason_and_Lucia_05.webp', 'images/Other_screenshots/Jason_and_Lucia_06.webp',
   'images/Other_screenshots/Jason_and_Lucia_07.webp', 'images/Other_screenshots/Jason_and_Lucia_08.webp', 'images/Other_screenshots/Jason_and_Lucia_09.webp',
