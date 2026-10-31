@@ -174,6 +174,10 @@ const images = [
 
   'images/Other_screenshots/Ambrosia_06.webp', 'images/Other_screenshots/Grassrivers_05.webp', 'images/Other_screenshots/Grassrivers_06.webp',
   'images/Other_screenshots/HUHRmlSWwAAdEd5.webp', 'images/Other_screenshots/HUHRnO0W0AArDux.webp', 'images/Other_screenshots/HUHRnzhWYAAvYBe.webp',
+  'images/Other_screenshots/HVwbn6CXgAAGcGv.webp', 'images/Other_screenshots/HVwbnSBWcAEqIz0.webp', 'images/Other_screenshots/HVwbrnAWoAA_2a5.webp',
+  'images/Other_screenshots/HVwbw2TXgAAIZHR.webp', 'images/Other_screenshots/HVwcBcfW8AA6GCY.webp', 'images/Other_screenshots/HVwcCcFXEAE3g0w.webp',
+  'images/Other_screenshots/HVwcDpHXMAEzHwK.webp', 'images/Other_screenshots/HVwcDQeXYAA6mb2.webp', 'images/Other_screenshots/HVwcEthXEAAVPk_.webp',
+  'images/Other_screenshots/HVwcibaXoAAmyU1.webp', 'images/Other_screenshots/HVwcNECXIAAOaLC.webp', 'images/Other_screenshots/HVwcNsgWcAEfULB.webp',
   'images/Other_screenshots/Jason_and_Lucia_01.webp', 'images/Other_screenshots/Jason_and_Lucia_02.webp', 'images/Other_screenshots/Jason_and_Lucia_03.webp',
   'images/Other_screenshots/Jason_and_Lucia_04.webp', 'images/Other_screenshots/Jason_and_Lucia_05.webp', 'images/Other_screenshots/Jason_and_Lucia_06.webp',
   'images/Other_screenshots/Jason_and_Lucia_07.webp', 'images/Other_screenshots/Jason_and_Lucia_08.webp', 'images/Other_screenshots/Jason_and_Lucia_09.webp',
